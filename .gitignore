@@ -1,0 +1,4 @@
+bin
+*.zip
+selenium*
+__pycache__
