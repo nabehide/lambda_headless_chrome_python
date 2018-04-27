@@ -1,6 +1,6 @@
 # Lambda Headless Chrome
 - This is the sample code to run headless chrome on AWS Lambda by Python.
-- [Japanese document]()
+- [Japanese document](https://qiita.com/nabehide/items/754eb7b7e9fff9a1047d)
 
 # How to run
 - At first, Create a role which has "AWSLambdaFullAccess" policy.
@@ -28,8 +28,8 @@ $ docker build -t lambda_headless_chrome_python .
 $ docker run -v "${PWD}":/var/task lambda_headless_chrome_python
 
 # upload package to AWS S3
-$ aws s3 cp deploy_package.zip s3://(your_bucket_name)
+$ aws s3 cp deploy_package.zip s3://YOUR_BUCKET_NAME
 
 # create lambda function
-$ aws lambda create-function --region ap-northeast-1 --function-name lambda_headless_chrome_python --runtime python3.6 --role $(role_name) --code S3Bucket=$(bucket_name),S3Key=deploy_package.zip --handler lambda_function.lambda_handler --memory-size 512 --timeout 300
+$ aws lambda create-function --region ap-northeast-1 --function-name lambda_headless_chrome_python --runtime python3.6 --role YOUR_ROLE_NAME --code S3Bucket=YOUR_BUCKET_NAME,S3Key=deploy_package.zip --handler lambda_function.lambda_handler --memory-size 512 --timeout 300
 ```
